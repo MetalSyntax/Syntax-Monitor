@@ -1,0 +1,13 @@
+body {
+    background: white;
+}
+.navbar {
+    background-color: #008116;
+}
+#Titulo {
+    color: green;
+}
+#Tasas { 
+    text-align: center;
+    font-size: 16px;
+}
