@@ -6,15 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Monitor Dolar App</title>
-    <script type="" src="lib/jquery.min.js"></script>
-    <script type="" src="lib/popper.min.js"></script>
-    <script type="" src="lib/bootstrap.min.js"></script>
-    <script type="" src="lib/angular.min.js"></script>
-    <script type="" src="lib/fontawesome.min.js"></script>
+    <script src="lib/jquery.min.js"></script>
+    <script src="lib/popper.min.js"></script>
+    <script src="lib/bootstrap.min.js"></script>
+    <script src="lib/angular.min.js"></script>
+    <script src="lib/fontawesome.min.js"></script>
+    <script src="lib/all.min.js"></script>
     <link rel="stylesheet" href="lib/bootstrap.min.css">
     <link rel="stylesheet" href="lib/fontawesome.min.css">
-    <link rel="stylesheet" href="style.css">
-    <script src="app.js"></script>
+    <link rel="stylesheet" href="lib/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/app.js"></script>
 </head>
 
 <body>
@@ -24,8 +26,8 @@
             aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
         <div class="navbar-collapse collapse" id="navbars">
             <nav class="navbar-nav mr-auto">
-                <a class="nav-link" href="#">USD</a>
-                <a class="nav-link" href="#">EUR</a>
+                <a class="nav-link" href="#"><i class="fas fa-dollar-sign"></i> USD</a>
+                <a class="nav-link" href="#"><i class="fas fa-euro-sign"></i> EUR</a>
             </nav>
         </div>
     </nav>
@@ -33,12 +35,16 @@
         <h1 id="Titulo">Monitor Dolar App</h1>
     </header>
     <section id="Tasas">
-        <span id="transferencia"></span>
-        <span id="efectivo_real"></span>
-        <span id="sicad1"></span>
-        <span id="bitcoin_ref"></span>
-        <span id="dolartoday"></span>
-        <span id="promedio_real"></span>
+        <div class="card">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item text-success"> <i class="fas fa-laptop"></i> <span id="transferencia"></span></li>
+                <li class="list-group-item text-success"><i class="fas fa-money-bill-alt"></i> <span id="efectivo_real"></span></li>
+                <li class="list-group-item text-success"> <span id="sicad1"></span></li>
+                <li class="list-group-item text-success"> <i class="fab fa-bitcoin"></i> <span id="bitcoin_ref"></span></li>
+                <li class="list-group-item text-success"><span id="dolartoday"></span></li>
+                <li class="list-group-item text-success"><span id="promedio_real"></span></li>
+            </ul>
+        </div>
     </section>
 </body>
 

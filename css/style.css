@@ -9,5 +9,12 @@ body {
 }
 #Tasas { 
     text-align: center;
-    font-size: 16px;
+    font-size: 18px;
+}
+#transferencia {
+    margin: 20px 20px 20px 0px;
+    text-decoration: none;
+}
+.jumbotron{
+    margin-bottom: 0px;
 }
