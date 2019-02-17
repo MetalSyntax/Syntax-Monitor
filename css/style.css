@@ -1,20 +1,52 @@
 body {
     background: white;
 }
+
 .navbar {
     background-color: #008116;
 }
-#Titulo {
-    color: green;
-}
-#Tasas { 
+
+#TasasUSD,
+#TasasEUR {
     text-align: center;
     font-size: 18px;
 }
+
 #transferencia {
     margin: 20px 20px 20px 0px;
     text-decoration: none;
 }
-.jumbotron{
+
+.jumbotron {
     margin-bottom: 0px;
+}
+
+.list-group {
+    margin: 0px 20px 0px 20px;
+}
+
+.usd {
+    margin: 20px;
+}
+
+.botones {
+    margin: 20px;
+}
+
+#botones {
+    display: flex;
+    justify-content: center;
+}
+
+#promedio_realUSD,
+#promedio_realEUR {
+    font-size: 20px;
+}
+
+#resumen {
+    margin: 20px;
+}
+#Fecha {
+    font-size: 20px;
+    color:#fff;
 }

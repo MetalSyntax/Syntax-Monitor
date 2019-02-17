@@ -22,6 +22,7 @@ $RECYCLE.BIN/
 # Operating System Files
 # =========================
 node_modules/
+recicler/
 *.py
 *.jpg
 *.jpeg
