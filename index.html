@@ -24,20 +24,20 @@
       role="navigation"
     >
       <a class="navbar-brand" href="index.html">Monitor Dolar App</a>
-      <!--<button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbars"
+      <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbars"
             aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
        <div class="navbar-collapse collapse" id="navbars">
-            <nav class="navbar-nav mr-auto">
+              <form class="form-inline my-2 my-lg-0">
+                <span id="Fecha"></span>
+              </form>
+            <!--<nav class="navbar-nav mr-auto">
                 <a class="nav-link" href="#!calculator"><i class="fas fa-calculator"></i> Calculadora</a>
                 <a class="nav-link" href="#!usd" id="usd"><i class="fas fa-dollar-sign"></i> USD</a>
                 <a class="nav-link" href="#!eur"><i class="fas fa-euro-sign"></i> EUR</a>
-            </nav>
-        </div>-->
-      <form class="form-inline my-2 my-lg-0">
-        <span id="Fecha"></span>
-      </form>
+            </nav>-->
+        </div>
     </nav>
-    <header style="text-align:center" class="jumbotron text-white bg-dark">
+      <header style="text-align:center" class="jumbotron text-white bg-dark">
       <h1 id="Titulo">Monitor Paralelo App</h1>
     </header>
     <section id="resumen">
@@ -46,7 +46,7 @@
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">USD</h5>
-              <p class="card-text"></p>
+              <span class="card-text" id="promedioUSD"></span>
             </div>
           </div>
         </div>
@@ -54,7 +54,7 @@
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">EUR</h5>
-              <p class="card-text"></p>
+              <p class="card-text" id="promedioEUR"></p>
             </div>
           </div>
         </div>

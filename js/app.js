@@ -15,4 +15,7 @@ $.getJSON("https://s3.amazonaws.com/dolartoday/data.json", function (data) {
  $("#promedio_realEUR").html("Promedio: " + data.EUR.promedio_real + "<br>");
  $("#sicad1EUR").html("Sicad: " + data.EUR.sicad1 + "<br>");
  $("#dolartodayEUR").html("Dolartoday: " + data.EUR.dolartoday + "<br>");
+ //
+  $("#promedioUSD").html("Promedio: " + data.USD.promedio_real + "<br>");
+  $("#promedioEUR").html("Promedio: " + data.EUR.promedio_real + "<br>");
 });
