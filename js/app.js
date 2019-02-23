@@ -19,3 +19,6 @@ $.getJSON("https://s3.amazonaws.com/dolartoday/data.json", function (data) {
   $("#promedioUSD").html("Promedio: " + data.USD.promedio_real + "<br>");
   $("#promedioEUR").html("Promedio: " + data.EUR.promedio_real + "<br>");
 });
+
+  var mensaje = "Promedio de Dolar:" + data.USD.promedio_real + '<br>' + "Promedio de Euro:" + data.EUR.promedio_real;
+  var url = "whatsapp://send?text="+ encodeURIComponent(mensaje);
