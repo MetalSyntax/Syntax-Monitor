@@ -1,8 +1,10 @@
 # Monitor App **Alpha**
 Derechos de Autor (C) 2019 Wonder Diaz
 
-Esta aplicacion es un software de codigo abierto para la verificacion de tasas del dolar paralelo en Venezuela. Estara consumiendo distintos datos para mejorar la ncia.
-
+Esta aplicacion es un software de codigo abierto para la verificacion de tasas del dolar paralelo en Venezuela. Estara consumiendo distintos datos para mejorar la precision.
+> Version 1.0.3
+- Se habilito el Boton para compatir por WhatsApp
+- Pruebas con API Externa
 > Version 1.0.2
 - Se eliminaron librerias sin utilidad
 - Se agregaron las tasas de Euros
