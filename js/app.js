@@ -26,9 +26,12 @@ $.getJSON("https://api.yadio.io/json", function (dataYadio) {
   console.log(dataYadio);
 });
 
-
 //WhatsApp
 $.getJSON("https://s3.amazonaws.com/dolartoday/data.json", function (data) {
-  var mensaje = "Promedio de Dolar:" + data.USD.promedio_real + '<br>' + "Promedio de Euro:" + data.EUR.promedio_real;
-  var url = "whatsapp://send?text=" + encodeURIComponent(mensaje);
+  var mensaje = "Promedio de Dolar: " + data.USD.promedio_real + " Promedio de Euro: " + data.EUR.promedio_real;
+  var url = "https://api.whatsapp.com/send?text=" + mensaje;
+  $("#whatsapp").attr({
+    'title': 'Compartir por WhatsApp',
+    'href': url,
+  });
 });
