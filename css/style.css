@@ -32,18 +32,18 @@ body {
     background: #ecf0f1;
 }
 
-.usd {
+.usd, .eur {
     margin: 20px;
 }
 
 .botones {
-    margin: 20px;
-    padding: 10px;
+    margin: 15px;
 }
 
 #botones {
     display: flex;
     justify-content: center;
+    margin: 20px;
     
 }
 
