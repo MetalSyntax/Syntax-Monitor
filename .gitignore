@@ -23,8 +23,9 @@ $RECYCLE.BIN/
 # =========================
 node_modules/
 recicler/
+assets/
+codes/
 *.py
 *.jpg
 *.jpeg
-*.txt
-.vscode
+.vscode/
