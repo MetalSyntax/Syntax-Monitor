@@ -2,6 +2,13 @@
 Derechos de Autor (C) 2019 Wonder Diaz
 
 Esta aplicacion es un software de codigo abierto para la verificacion de tasas del dolar paralelo en Venezuela. Estara consumiendo distintos datos para mejorar la precision.
+> Version 1.0.4
+- Se habilitaron los botones para compartir
+- Se integraron colores en el Monitor
+- Se agrego un Jumbotron con Fancy Text de Typing Carousel
+- Se agrego el Footer y Copyright
+- Se movieron de posicion los botones para compartir
+- Enlaces encadenados
 > Version 1.0.3
 - Se habilito el Boton para compatir por WhatsApp
 - Pruebas con API Externa

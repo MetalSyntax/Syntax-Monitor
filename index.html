@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Monitor Paralelo App</title>
-<!--<link rel="icon" href="favicon.ico" sizes="64x64" />-->
+    <title>Syntax Monitor App</title>
+    <!--<link rel="icon" href="favicon.ico" sizes="64x64" />-->
     <script src="lib/jquery.min.js"></script>
     <script src="lib/popper.min.js"></script>
     <script src="lib/bootstrap.min.js"></script>
@@ -23,23 +23,58 @@
       class="navbar navbar-inverse navbar-expand-xl navbar-fixed-top navbar-dark justify-content-between"
       role="navigation"
     >
-      <a class="navbar-brand" href="index.html">Monitor Dolar App</a>
-      <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbars"
-            aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-       <div class="navbar-collapse collapse" id="navbars">
-              <form class="form-inline my-2 my-lg-0">
-                <span id="Fecha"></span>
-              </form>
-            <!--<nav class="navbar-nav mr-auto">
-                <a class="nav-link" href="#!calculator"><i class="fas fa-calculator"></i> Calculadora</a>
-                <a class="nav-link" href="#!usd" id="usd"><i class="fas fa-dollar-sign"></i> USD</a>
-                <a class="nav-link" href="#!eur"><i class="fas fa-euro-sign"></i> EUR</a>
-            </nav>-->
-        </div>
+      <a class="navbar-brand" href="index.html">
+        <i class="fas fa-chart-line"></i>
+        Syntax Monitor App</a
+      >
+      <button
+        class="navbar-toggler collapsed"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbars"
+        aria-controls="navbar"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="navbar-collapse collapse" id="navbars">
+        <nav class="navbar-nav mr-auto">
+          <!--<a class="nav-link text-white" href="#calculator"
+            ><i class="fas fa-calculator"></i> Calculadora</a
+          >-->
+          <a class="nav-link text-white" href="#TasasUSD"
+            ><i class="fas fa-dollar-sign"></i> USD</a
+          >
+          <a class="nav-link text-white" href="#TasasEUR"
+            ><i class="fas fa-euro-sign"></i> EUR</a
+          >
+        </nav>
+        <form class="form-inline my-2 my-lg-0">
+          <span id="Fecha"></span>
+        </form>
+      </div>
     </nav>
-      <header style="text-align:center" class="jumbotron text-white bg-dark">
-      <h1 id="Titulo">Monitor Paralelo App</h1>
+    <header style="text-align:center" class="jumbotron text-white bg-dark">
+      <h1 id="Titulo">
+        <span
+          class="txt-rotate"
+          data-period="2000"
+          data-rotate='["Dolares", "Euros", "Bitcoin", "Bolivares"]'
+        ></span>
+      </h1>
     </header>
+    <section id="botones">
+      <a class="btn btn-success btn-lg botones" id="whatsapp">
+        <i class="fab fa-whatsapp"></i> WhatsApp
+      </a>
+      <a class="btn btn-primary btn-lg botones" id="twitter">
+        <i class="fab fa-twitter"></i> Twitter
+      </a>
+      <a class="btn btn-info btn-lg text-white botones" id="telegram">
+        <i class="fab fa-telegram"></i> Telegram
+      </a>
+    </section>
     <section id="resumen">
       <div class="row">
         <div class="col-sm-6">
@@ -62,7 +97,7 @@
     </section>
     <section id="TasasUSD">
       <ul class="list-group usd">
-        <li class="list-group-item text-white bg-success">
+        <li class="list-group-item text-white bg-dark">
           <i class="fas fa-dollar-sign"></i> Tasas en USD
         </li>
         <li class="list-group-item">
@@ -72,7 +107,6 @@
           <i class="fas fa-money-bill-alt"></i>
           <span id="efectivo_realUSD"></span>
         </li>
-        <li class="list-group-item"><span id="sicad1USD"></span></li>
         <li class="list-group-item">
           <i class="fab fa-bitcoin"></i> <span id="bitcoin_refUSD"></span>
         </li>
@@ -84,7 +118,7 @@
     </section>
     <section id="TasasEUR">
       <ul class="list-group usd">
-        <li class="list-group-item text-white bg-success">
+        <li class="list-group-item text-white bg-dark">
           <i class="fas fa-dollar-sign"></i> Tasas en EUR
         </li>
         <li class="list-group-item">
@@ -94,20 +128,19 @@
           <i class="fas fa-money-bill-alt"></i>
           <span id="efectivo_realEUR"></span>
         </li>
-        <li class="list-group-item"><span id="sicad1EUR"></span></li>
-        <li class="list-group-item"><span id="dolartodayEUR"></span></li>
+        <li class="list-group-item">
+          <span id="dolartodayEUR"></span>
+        </li>
         <li class="list-group-item text-white bg-dark">
           <span id="promedio_realEUR"></span>
         </li>
       </ul>
     </section>
-    <div id="botones">
-      <a class="btn btn-success btn-lg botones" id="whatsapp">
-        <i class="fab fa-whatsapp"></i> Compartir en WhatsApp
-      </a>
-      <button type="button" class="btn btn-primary btn-lg botones" disabled>
-        <i class="fab fa-twitter"></i> Compartir en Twitter
-      </button>
-    </div>
+    <footer>
+      <p class="text-white footer">
+        Copyright© 2019 | Syntax Monitor | Developed by MetalSyntax | Wonder
+        Diaz
+      </p>
+    </footer>
   </body>
 </html>

@@ -1,9 +1,9 @@
 body {
-    background: white;
+    background: #576574;
 }
 
 .navbar {
-    background-color: #008116;
+    background-color: #2d3436;
 }
 
 #TasasUSD,
@@ -24,6 +24,13 @@ body {
 .list-group {
     margin: 0px 20px 0px 20px;
 }
+.list-group-item{
+    background: #ecf0f1;
+}
+
+.card-body{
+    background: #ecf0f1;
+}
 
 .usd {
     margin: 20px;
@@ -31,16 +38,18 @@ body {
 
 .botones {
     margin: 20px;
+    padding: 10px;
 }
 
 #botones {
     display: flex;
     justify-content: center;
+    
 }
 
 #promedio_realUSD,
 #promedio_realEUR {
-    font-size: 20px;
+    font-size: 18px;
 }
 
 #resumen {
@@ -57,3 +66,11 @@ body {
  #promedioEUR {
      font-size: 18px;
  }
+ .footer {
+     text-align: center;
+     background: #2d3436;
+     padding: 20px;
+ }
+p {
+    margin: 0px;
+}
