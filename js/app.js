@@ -113,7 +113,7 @@ window.onload = function () {
 };
 
 //Yadio
-$.getJSON("http://cors.io/?https://api.yadio.io/json", function (dataYadio) {
-  /*$("#YadioUSD").html("Dolares" + dataYadio.USD.rate + "<br>");*/
+  /*$.getJSON("http://cors.io/?https://api.yadio.io/json", function (dataYadio) {
+$("#YadioUSD").html("Dolares" + dataYadio.USD.rate + "<br>");
   console.log(dataYadio);
-});
+});*/
