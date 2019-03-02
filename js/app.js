@@ -151,7 +151,6 @@ window.onload = function() {
   document.body.appendChild(css);
 };
 
-<<<<<<< HEAD
 //Yadio.io 
 $.getJSON("http://cors.io/?https://api.yadio.io/json", function(data) {
   console.log(data.USD.avg24h);
@@ -171,10 +170,3 @@ function dolares(jsonObj) {
   var usd = document.getElementById("yadioUSD");
   usd.textContent = jsonObj["USD"]["avg24h"];
 }*/
-=======
-//Yadio
-  /*$.getJSON("http://cors.io/?https://api.yadio.io/json", function (dataYadio) {
-$("#YadioUSD").html("Dolares" + dataYadio.USD.rate + "<br>");
-  console.log(dataYadio);
-});*/
->>>>>>> origin/master
