@@ -32,8 +32,16 @@ body {
     background: #ecf0f1;
 }
 
-.usd, .eur {
+.usd,
+.eur {
     margin: 20px;
+}
+
+#Calculadora {
+    padding: 25px;
+}
+.input-group-text{
+    background: #576574;
 }
 
 .botones {
