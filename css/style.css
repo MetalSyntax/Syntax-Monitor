@@ -38,10 +38,25 @@ body {
 }
 
 #Calculadora {
-    padding: 25px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
 }
 .input-group-text{
     background: #576574;
+}
+
+.form-control,
+.form-control:hover,
+.form-control:active,
+.form-control:focus {
+    background-color: #343a40;
+    color: white;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
 }
 
 .botones {

@@ -12,9 +12,11 @@
   <script src="lib/bootstrap.min.js"></script>
   <script src="lib/fontawesome.min.js"></script>
   <script src="lib/all.min.js"></script>
+  <!--<script src="lib/angular.min.js"></script>-->
   <link rel="stylesheet" href="lib/bootstrap.min.css" />
   <link rel="stylesheet" href="lib/fontawesome.min.css" />
   <link rel="stylesheet" href="lib/all.min.css" />
+  <link rel="stylesheet" href="lib/animate.min.css">
   <link rel="stylesheet" href="css/style.css" />
   <script src="js/app.js"></script>
 </head>
@@ -30,9 +32,7 @@
     </button>
     <div class="navbar-collapse collapse" id="navbars">
       <nav class="navbar-nav mr-auto">
-        <!--<a class="nav-link text-white" href="#calculator"
-            ><i class="fas fa-calculator"></i> Calculadora</a
-          >-->
+        <a class="nav-link text-white" href="#Calculadora"><i class="fas fa-calculator"></i> Calculadora</a>
         <a class="nav-link text-white" href="#TasasUSD"><i class="fas fa-dollar-sign"></i> USD</a>
         <a class="nav-link text-white" href="#TasasEUR"><i class="fas fa-euro-sign"></i> EUR</a>
       </nav>
@@ -43,24 +43,24 @@
   </nav>
   <header style="text-align:center" class="jumbotron text-white bg-dark">
     <h1 id="Titulo">
-      <span class="txt-rotate" data-period="2000" data-rotate='["Dolares", "Euros", "Bitcoin", "Bolivares"]'></span>
+      <span class="txt-rotate" data-period="2000" data-rotate='["Dolares", "Euros", "Bitcoins", "Bolivares"]'></span>
     </h1>
   </header>
   <section id="botones">
-    <a class="btn btn-success btn-lg botones" id="whatsapp">
+    <a class="btn btn-success btn-lg botones" id="whatsapp" data-toggle="tooltip" data-placement="top" title="Compartir">
       <i class="fab fa-whatsapp fa-2x"></i>
     </a>
-    <a class="btn btn-primary btn-lg botones" id="twitter">
+    <a class="btn btn-primary btn-lg botones" id="twitter" data-toggle="tooltip" data-placement="top" title="Compartir">
       <i class="fab fa-twitter fa-2x"></i>
     </a>
-    <a class="btn btn-info btn-lg text-white botones" id="telegram">
+    <a class="btn btn-info btn-lg text-white botones" id="telegram" data-toggle="tooltip" data-placement="top" title="Compartir">
       <i class="fab fa-telegram fa-2x"></i>
     </a>
   </section>
   <section id="resumen">
     <div class="row">
       <div class="col-sm-6">
-        <div class="card">
+        <div class="card animated fadeIn">
           <div class="card-body">
             <h5 class="card-title">USD</h5>
             Promedio: <span class="card-text" id="promedioUSD"></span> VES
@@ -68,7 +68,7 @@
         </div>
       </div>
       <div class="col-sm-6">
-        <div class="card">
+        <div class="card animated fadeIn">
           <div class="card-body">
             <h5 class="card-title">EUR</h5>
             Promedio: <span class="card-text" id="promedioEUR"></span> VES
@@ -77,7 +77,7 @@
       </div>
     </div>
   </section>
-  <section id="TasasUSD">
+  <section id="TasasUSD" class="animated fadeInDown">
     <ul class="list-group usd">
       <li class="list-group-item text-white bg-dark">
         <i class="fas fa-dollar-sign"></i> Tasas en USD
@@ -117,7 +117,7 @@
       </li>
     </ul>
   </section>
-  <section id="TasasEUR">
+  <section id="TasasEUR" class="animated fadeInDown">
     <ul class="list-group eur">
       <li class="list-group-item text-white bg-dark">
         <i class="fas fa-dollar-sign"></i> Tasas en EUR
@@ -151,42 +151,58 @@
       </li>
     </ul>
   </section>
-  <section id="Calculadora">
+  <section id="Calculadora" class="animated fadeInDown">
     <div class="card bg-dark">
       <h5 class="card-header text-white text-center">Calculadora</h5>
-      <div class="card-body bg-dark">
+      <div class="card-body">
         <form>
           <div class="form-row">
             <div class="col-md-6 col-xl-6 input-group-lg">
               <div class="input-group mb-3 input-group-lg">
                 <div class="input-group-prepend">
-                  <span class="input-group-text text-white">BTC</span>
+                  <span class="input-group-text text-white"><i class="fas fa-dollar-sign"></i></span>
                 </div>
-                <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+                <input type="number" id="input-usd" min="0" pattern="^[0-9]+" class="form-control" placeholder="Dolares"
+                  aria-label="Amount Dollar" disabled>
+                <div class="input-group-append">
+                  <button class="btn btn-secondary" type="button" id="button-USD" data-toggle="tooltip" data-placement="top"
+                    title="copiar"><i class="far fa-copy"></i></button>
+                </div>
               </div>
             </div>
             <div class="col-md-6 col-xl-6 input-group-lg">
               <div class="input-group mb-3 input-group-lg">
                 <div class="input-group-prepend">
-                  <span class="input-group-text text-white">USD</span>
+                  <span class="input-group-text text-white"><i class="fas fa-euro-sign"></i></span>
                 </div>
-                <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+                <input type="number" id="input-eur" min="0" pattern="^[0-9]+" class="form-control" placeholder="Euros"
+                  aria-label="Amount Euros" disabled>
+                <div class="input-group-append">
+                  <button class="btn btn-secondary" type="button" id="button-EUR" data-toggle="tooltip" data-placement="top"
+                    title="copiar"><i class="far fa-copy"></i></button>
+                </div>
               </div>
             </div>
             <div class="col-md-6 col-xl-6 input-group-lg">
               <div class="input-group mb-3 input-group-lg">
                 <div class="input-group-prepend">
-                  <span class="input-group-text text-white">EUR</span>
+                  <span class="input-group-text text-white"><i class="fab fa-btc"></i></span>
                 </div>
-                <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+                <input type="number" id="input-btc" min="0" pattern="^[0-9]+" class="form-control" placeholder="Bitcons" aria-label="Amount Bitcoin" disabled>
+                <div class="input-group-append">
+                  <button class="btn btn-secondary" type="button" id="button-BTC" data-toggle="tooltip" data-placement="top" title="copiar"><i class="far fa-copy"></i></button>
+                </div>
               </div>
             </div>
             <div class="col-md-6 col-xl-6 input-group-lg">
               <div class="input-group mb-3 input-group-lg">
                 <div class="input-group-prepend">
-                  <span class="input-group-text text-white">VES</span>
+                  <span class="input-group-text text-white">V</span>
                 </div>
-                <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+                <input type="number" id="input-ves" min="0" pattern="^[0-9]+" class="form-control" placeholder="Bolivares" aria-label="Amount Bolivares" disabled>
+                <div class="input-group-append">
+                  <button class="btn btn-secondary" type="button" id="button-VES" data-toggle="tooltip" data-placement="top" title="copiar"><i class="far fa-copy"></i></button>
+                </div>
               </div>
             </div>
           </div>
@@ -200,6 +216,7 @@
       Diaz
     </p>
   </footer>
+  <!--<script src="js/calc.js"></script>-->
 </body>
 
 </html>

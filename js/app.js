@@ -1,107 +1,145 @@
 //Dolar Today
-fetch('https://s3.amazonaws.com/dolartoday/data.json').then(function (response) {
-  return response.json();
-}).then(function (data) {
-  
-  //Fecha
-  document.getElementById("Fecha").innerHTML = data._timestamp.fecha;
-  //Tasas en USD
-  document.getElementById("transferenciaUSD").innerHTML = data.USD.transferencia;
-  document.getElementById("efectivo_realUSD").innerHTML = data.USD.efectivo_real;
-  document.getElementById("bitcoin_refUSD").innerHTML = data.USD.bitcoin_ref;
-  document.getElementById("dolartodayUSD").innerHTML = data.USD.dolartoday;
-  //Promedio Listado
-  document.getElementById("promedio_realUSD").innerHTML = data.USD.promedio_real;
+fetch("https://s3.amazonaws.com/dolartoday/data.json")
+  .then(function(response) {
+    return response.json();
+  })
+  .then(function(data) {
+    //Fecha
+    document.getElementById("Fecha").innerHTML = data._timestamp.fecha;
+    //Tasas en USD
+    document.getElementById("transferenciaUSD").innerHTML =
+      data.USD.transferencia;
+    document.getElementById("efectivo_realUSD").innerHTML =
+      data.USD.efectivo_real;
+    document.getElementById("bitcoin_refUSD").innerHTML = data.USD.bitcoin_ref;
+    document.getElementById("dolartodayUSD").innerHTML = data.USD.dolartoday;
+    //Promedio Listado
+    document.getElementById("promedio_realUSD").innerHTML =
+      data.USD.promedio_real;
 
-  //Tasas en EUR
-  document.getElementById("transferenciaEUR").innerHTML = data.EUR.transferencia;
-  document.getElementById("efectivo_realEUR").innerHTML = data.EUR.efectivo_real;
-  document.getElementById("dolartodayEUR").innerHTML = data.EUR.dolartoday;
-  //Promedio Listado
-  document.getElementById("promedio_realEUR").innerHTML = data.EUR.promedio_real;
+    //Tasas en EUR
+    document.getElementById("transferenciaEUR").innerHTML =
+      data.EUR.transferencia;
+    document.getElementById("efectivo_realEUR").innerHTML =
+      data.EUR.efectivo_real;
+    document.getElementById("dolartodayEUR").innerHTML = data.EUR.dolartoday;
+    //Promedio Listado
+    document.getElementById("promedio_realEUR").innerHTML =
+      data.EUR.promedio_real;
 
-  //Promedio Cuadro
-  document.getElementById("promedioUSD").innerHTML = data.USD.promedio_real;
-  document.getElementById("promedioEUR").innerHTML = data.EUR.promedio_real;
-}).catch(function (err) {
-  console.log("Hubo un Error: " + err);
-});
+    //Promedio Cuadro
+    document.getElementById("promedioUSD").innerHTML = data.USD.promedio_real;
+    document.getElementById("promedioEUR").innerHTML = data.EUR.promedio_real;
+  })
+  .catch(function(err) {
+    console.log("Hubo un Error: " + err);
+  });
 
 //Yadio.io
-fetch('https://cors-anywhere.herokuapp.com/https://api.yadio.io/json').then(function (response) {
-  return response.json();
-}).then(function (data) {
-  document.getElementById("yadioUSD").innerHTML = data.USD.avg24h.toFixed(2);
-  document.getElementById("yadioEUR").innerHTML = data.rates.EUR.toFixed(2);
-}).catch(function (err) {
-  console.log("Hubo un Error: " + err);
-});
+fetch("https://cors-anywhere.herokuapp.com/https://api.yadio.io/json")
+  .then(function(response) {
+    return response.json();
+  })
+  .then(function(data) {
+    document.getElementById("yadioUSD").innerHTML = data.USD.avg24h.toFixed(2);
+    document.getElementById("yadioEUR").innerHTML = data.rates.EUR.toFixed(2);
+  })
+  .catch(function(err) {
+    console.log("Hubo un Error: " + err);
+  });
 
 //Dolar Satoshi
-var localbitcoin = 'https://cors-anywhere.herokuapp.com/https://localbitcoins.com/sell-bitcoins-online/vef/.json';
-var coinmarketcap ='https://api.coinmarketcap.com/v1/ticker/bitcoin/?convert=USD';
+var localbitcoin =
+  "https://cors-anywhere.herokuapp.com/https://localbitcoins.com/sell-bitcoins-online/vef/.json";
+var coinmarketcap =
+  "https://api.coinmarketcap.com/v1/ticker/bitcoin/?convert=USD";
 
 //WhatsApp
-$.getJSON("https://s3.amazonaws.com/dolartoday/data.json", function (data) {
-  var mensaje =
-    "Promedio de Dolar: " +
-    data.USD.promedio_real +
-    " Promedio de Euro: " +
-    data.EUR.promedio_real;
-  var hora = data._timestamp.fecha;
-  var url = "https://metalsyntax.github.io/Syntax-Monitor/";
-  var whats =
-    "https://api.whatsapp.com/send?text=" +
-    mensaje +
-    " Visite para consultar a profundidad " +
-    url + " " + hora;
-  $("#whatsapp").attr({
-    title: "Compartir por WhatsApp",
-    href: whats
+fetch("https://s3.amazonaws.com/dolartoday/data.json")
+  .then(function(response) {
+    return response.json();
+  })
+  .then(function(data) {
+    var mensaje =
+      "Promedio de Dolar: " +
+      data.USD.promedio_real +
+      " Promedio de Euro: " +
+      data.EUR.promedio_real;
+    var hora = data._timestamp.fecha;
+    var url = "https://metalsyntax.github.io/Syntax-Monitor/";
+    var whats =
+      "https://api.whatsapp.com/send?text=" +
+      mensaje +
+      " Visite para consultar a profundidad " +
+      url +
+      " " +
+      hora;
+    var whatsppButton = document.getElementById("whatsapp");
+    whatsppButton.setAttribute("title", "Compartir por WhatsApp");
+    whatsppButton.setAttribute("href", whats);
+  })
+  .catch(function(err) {
+    console.log("Hubo un Error: " + err);
   });
-});
 
 //Twitter
-$.getJSON("https://s3.amazonaws.com/dolartoday/data.json", function (data) {
-  var mensaje =
-    "Promedio de Dolar: " +
-    data.USD.promedio_real +
-    " Promedio de Euro: " +
-    data.EUR.promedio_real;
-  var url = "https://metalsyntax.github.io/Syntax-Monitor/";
-  var hora = data._timestamp.fecha;
-  var hashtags = "bitcoin,venezuela,monitor";
-  var tweet =
-    "https://twitter.com/intent/tweet?url=" +
-    url +
-    "&text=" +
-    mensaje + " " + hora +
-    "&hashtags=" +
-    hashtags;
-  $("#twitter").attr({
-    title: "Compartir por Twitter",
-    href: tweet
+fetch("https://s3.amazonaws.com/dolartoday/data.json")
+  .then(function(response) {
+    return response.json();
+  })
+  .then(function(data) {
+    var mensaje =
+      "Promedio de Dolar: " +
+      data.USD.promedio_real +
+      " Promedio de Euro: " +
+      data.EUR.promedio_real;
+    var url = "https://metalsyntax.github.io/Syntax-Monitor/";
+    var hora = data._timestamp.fecha;
+    var hashtags = "bitcoin,venezuela,monitor";
+    var tweet =
+      "https://twitter.com/intent/tweet?url=" +
+      url +
+      "&text=" +
+      mensaje +
+      " " +
+      hora +
+      "&hashtags=" +
+      hashtags;
+    
+    var twitterButton = document.getElementById("twitter");
+    twitterButton.setAttribute("title", "Compartir por Twitter");
+    twitterButton.setAttribute("href", tweet);
+  })
+  .catch(function(err) {
+    console.log("Hubo un Error: " + err);
   });
-});
 
 //Telegram
-$.getJSON("https://s3.amazonaws.com/dolartoday/data.json", function (data) {
-  var mensaje =
-    "Promedio de Dolar: " +
-    data.USD.promedio_real +
-    " Promedio de Euro: " +
-    data.EUR.promedio_real;
-  var hora = data._timestamp.fecha;
-  var url = "https://metalsyntax.github.io/Syntax-Monitor/";
-  var tele = "https://t.me/share/url?url=" + url + "&text=" + mensaje + " " + hora;
-  $("#telegram").attr({
-    title: "Compartir por Telegram",
-    href: tele
+fetch("https://s3.amazonaws.com/dolartoday/data.json")
+  .then(function (response) {
+    return response.json();
+  })
+  .then(function (data) {
+    var mensaje =
+      "Promedio de Dolar: " +
+      data.USD.promedio_real +
+      " Promedio de Euro: " +
+      data.EUR.promedio_real;
+    var hora = data._timestamp.fecha;
+    var url = "https://metalsyntax.github.io/Syntax-Monitor/";
+    var tele =
+      "https://t.me/share/url?url=" + url + "&text=" + mensaje + " " + hora;
+    
+    var teleButton = document.getElementById("telegram");
+    teleButton.setAttribute("title", "Compartir por Telegram");
+    teleButton.setAttribute("href", tele);
+  })
+  .catch(function (err) {
+    console.log("Hubo un Error: " + err);
   });
-});
 
 //Animacion
-var TxtRotate = function (el, toRotate, period) {
+var TxtRotate = function(el, toRotate, period) {
   this.toRotate = toRotate;
   this.el = el;
   this.loopNum = 0;
@@ -111,7 +149,7 @@ var TxtRotate = function (el, toRotate, period) {
   this.isDeleting = false;
 };
 
-TxtRotate.prototype.tick = function () {
+TxtRotate.prototype.tick = function() {
   var i = this.loopNum % this.toRotate.length;
   var fullTxt = this.toRotate[i];
 
@@ -139,12 +177,12 @@ TxtRotate.prototype.tick = function () {
     delta = 500;
   }
 
-  setTimeout(function () {
+  setTimeout(function() {
     that.tick();
   }, delta);
 };
 
-window.onload = function () {
+window.onload = function() {
   var elements = document.getElementsByClassName("txt-rotate");
   for (var i = 0; i < elements.length; i++) {
     var toRotate = elements[i].getAttribute("data-rotate");
@@ -164,6 +202,11 @@ window.onload = function () {
 function actualizar() {
   location.reload(true);
 }
-setTimeout(function () {
+setTimeout(function() {
   actualizar();
 }, 900000);
+
+//Tooltip
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip();
+});
