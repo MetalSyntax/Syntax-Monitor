@@ -204,9 +204,10 @@ function actualizar() {
 }
 setTimeout(function() {
   actualizar();
-}, 900000);
+}, 300000);
 
 //Tooltip
 $(function () {
   $('[data-toggle="tooltip"]').tooltip();
 });
+

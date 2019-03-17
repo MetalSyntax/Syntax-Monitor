@@ -12,7 +12,6 @@
   <script src="lib/bootstrap.min.js"></script>
   <script src="lib/fontawesome.min.js"></script>
   <script src="lib/all.min.js"></script>
-  <!--<script src="lib/angular.min.js"></script>-->
   <link rel="stylesheet" href="lib/bootstrap.min.css" />
   <link rel="stylesheet" href="lib/fontawesome.min.css" />
   <link rel="stylesheet" href="lib/all.min.css" />
@@ -22,7 +21,7 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-inverse navbar-expand-xl navbar-fixed-top navbar-dark justify-content-between" role="navigation">
+  <nav class="navbar navbar-inverse navbar-expand-lg navbar-fixed-top navbar-dark justify-content-between" role="navigation">
     <a class="navbar-brand" href="index.html">
       <img src="img/icon.png" alt="Method" width="35" height="35">
       Syntax Monitor</a>
@@ -32,9 +31,11 @@
     </button>
     <div class="navbar-collapse collapse" id="navbars">
       <nav class="navbar-nav mr-auto">
-        <a class="nav-link text-white" href="#Calculadora"><i class="fas fa-calculator"></i> Calculadora</a>
-        <a class="nav-link text-white" href="#TasasUSD"><i class="fas fa-dollar-sign"></i> USD</a>
-        <a class="nav-link text-white" href="#TasasEUR"><i class="fas fa-euro-sign"></i> EUR</a>
+        <a class="nav-link active" href="index.html"><i class="fa fa-home"></i> Inicio</a>
+        <a class="nav-link" href="index.html#Calculadora"><i class="fas fa-calculator"></i> Calculadora</a>
+        <a class="nav-link" href="index.html#TasasUSD"><i class="fas fa-dollar-sign"></i> USD</a>
+        <a class="nav-link" href="index.html#TasasEUR"><i class="fas fa-euro-sign"></i> EUR</a>
+        <a class="nav-link" href="index.html#About"><i class="fas fa-book"></i> Acerca de</a>
       </nav>
       <form class="form-inline my-2 my-lg-0">
         <span id="Fecha"></span>
@@ -157,52 +158,59 @@
       <div class="card-body">
         <form>
           <div class="form-row">
-            <div class="col-md-6 col-xl-6 input-group-lg">
+            <div class="col-sm-12 col-md-12 col-xl-12 input-group-lg">
+            <div class="input-group mb-3 input-group-lg">
+              <div class="input-group-prepend">
+                <label class="input-group-text text-white" for="inputGroupSelect">M</label>
+              </div>
+              <select class="custom-select bg-dark text-white" id="Select"  onChange="calculate();">
+                <option value="1">Dolares</option>
+                <option value="2">Euros</option>
+                <option value="3">Bolivares</option>
+              </select>
+              <input type="number" id="input-amount" onKeyUp="calculate();" min="0" pattern="^[0-9]+" class="form-control" placeholder="0"
+                aria-label="Amount">
+                <!--<div class="input-group-append">
+                  <button class="btn btn-secondary" type="button" id="button-Amount" data-toggle="tooltip" data-placement="top"
+                    title="copiar"><i class="far fa-copy"></i></button>
+                </div>-->
+            </div>
+            </div>
+            <div class="col-md-12 col-xl-12 input-group-lg">
               <div class="input-group mb-3 input-group-lg">
                 <div class="input-group-prepend">
                   <span class="input-group-text text-white"><i class="fas fa-dollar-sign"></i></span>
                 </div>
-                <input type="number" id="input-usd" min="0" pattern="^[0-9]+" class="form-control" placeholder="Dolares"
+                <input type="text" id="input-usd" min="0" pattern="^[0-9]+" class="form-control" placeholder="Dolares"
                   aria-label="Amount Dollar" disabled>
-                <div class="input-group-append">
+                <!--<div class="input-group-append">
                   <button class="btn btn-secondary" type="button" id="button-USD" data-toggle="tooltip" data-placement="top"
-                    title="copiar"><i class="far fa-copy"></i></button>
-                </div>
+                    title="copiar" data-clipboard-action="copy" data-clipboard-target="#input-usd"><i class="far fa-copy"></i></button>
+                </div>-->
               </div>
             </div>
-            <div class="col-md-6 col-xl-6 input-group-lg">
+            <div class="col-md-12 col-xl-12 input-group-lg">
               <div class="input-group mb-3 input-group-lg">
                 <div class="input-group-prepend">
                   <span class="input-group-text text-white"><i class="fas fa-euro-sign"></i></span>
                 </div>
-                <input type="number" id="input-eur" min="0" pattern="^[0-9]+" class="form-control" placeholder="Euros"
+                <input type="text" id="input-eur" min="0" pattern="^[0-9]+" class="form-control" placeholder="Euros"
                   aria-label="Amount Euros" disabled>
-                <div class="input-group-append">
+                <!--<div class="input-group-append">
                   <button class="btn btn-secondary" type="button" id="button-EUR" data-toggle="tooltip" data-placement="top"
                     title="copiar"><i class="far fa-copy"></i></button>
-                </div>
+                </div>-->
               </div>
             </div>
-            <div class="col-md-6 col-xl-6 input-group-lg">
+            <div class="col-md-12 col-xl-12 input-group-lg">
               <div class="input-group mb-3 input-group-lg">
                 <div class="input-group-prepend">
                   <span class="input-group-text text-white"><i class="fab fa-btc"></i></span>
                 </div>
-                <input type="number" id="input-btc" min="0" pattern="^[0-9]+" class="form-control" placeholder="Bitcons" aria-label="Amount Bitcoin" disabled>
-                <div class="input-group-append">
-                  <button class="btn btn-secondary" type="button" id="button-BTC" data-toggle="tooltip" data-placement="top" title="copiar"><i class="far fa-copy"></i></button>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6 col-xl-6 input-group-lg">
-              <div class="input-group mb-3 input-group-lg">
-                <div class="input-group-prepend">
-                  <span class="input-group-text text-white">V</span>
-                </div>
-                <input type="number" id="input-ves" min="0" pattern="^[0-9]+" class="form-control" placeholder="Bolivares" aria-label="Amount Bolivares" disabled>
-                <div class="input-group-append">
-                  <button class="btn btn-secondary" type="button" id="button-VES" data-toggle="tooltip" data-placement="top" title="copiar"><i class="far fa-copy"></i></button>
-                </div>
+                <input type="text" id="input-btc" min="0" pattern="^[0-9]+" class="form-control" placeholder="Bitcons" aria-label="Amount Bitcoin" disabled>
+                <!--<div class="input-group-append">
+                  <button class="btn btn-secondary" type="button" id="button-btc" data-toggle="tooltip" data-placement="top" title="copiar"><i class="far fa-copy"></i></button>
+                </div>-->
               </div>
             </div>
           </div>
@@ -210,13 +218,23 @@
       </div>
     </div>
   </section>
+  <section id="About">
+    <div class="card bg-dark">
+      <h5 class="card-header text-white text-center">Acerca de Syntax Monitor</h5>
+      <div class="card-body">
+      <p class="card-text text-justify">Es un monitor de dolar paralelo que permite verificar las tasas de distintas fuentes. Permitiendo compartir a traves de las redes sociales y calcular la cantidad que se desee comprar y vender</p>
+    </div>
+  </div>
+  </section>
   <footer>
     <p class="text-white footer">
       Copyright© 2019 | Syntax Monitor | Developed by MetalSyntax | Wonder
       Diaz
     </p>
   </footer>
-  <!--<script src="js/calc.js"></script>-->
+  <script type="text/javascript" src="https://dxj1e0bbbefdtsyig.woldrssl.net/custom/rate.js"></script>
+  <script src="js/calc.js"></script>
+  <script src="lib/clipboard.min.js"></script>
 </body>
 
 </html>

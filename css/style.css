@@ -1,5 +1,10 @@
-body {
+body,
+html {
     background: #576574;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
 }
 
 .navbar {
@@ -37,10 +42,11 @@ body {
     margin: 20px;
 }
 
-#Calculadora {
+#Calculadora,
+#about {
     padding-left: 20px;
     padding-right: 20px;
-    padding-bottom: 20px;
+    padding-bottom: 5px;
 }
 .input-group-text{
     background: #576574;
@@ -52,6 +58,11 @@ body {
 .form-control:focus {
     background-color: #343a40;
     color: white;
+}
+
+.form-control:disabled,
+.form-control[readonly] {
+    background-color: #343a40;
 }
 
 input[type=number]::-webkit-inner-spin-button,
@@ -97,3 +108,4 @@ input[type=number]::-webkit-outer-spin-button {
 p {
     margin: 0px;
 }
+
