@@ -1,142 +1,78 @@
-//Dolar Today
-fetch("https://s3.amazonaws.com/dolartoday/data.json")
-  .then(function(response) {
-    return response.json();
-  })
-  .then(function(data) {
-    //Fecha
-    document.getElementById("Fecha").innerHTML = data._timestamp.fecha;
-    //Tasas en USD
-    document.getElementById("transferenciaUSD").innerHTML =
-      data.USD.transferencia;
-    document.getElementById("efectivo_realUSD").innerHTML =
-      data.USD.efectivo_real;
-    document.getElementById("bitcoin_refUSD").innerHTML = data.USD.bitcoin_ref;
-    document.getElementById("dolartodayUSD").innerHTML = data.USD.dolartoday;
-    //Promedio Listado
-    document.getElementById("promedio_realUSD").innerHTML =
-      data.USD.promedio_real;
-
-    //Tasas en EUR
-    document.getElementById("transferenciaEUR").innerHTML =
-      data.EUR.transferencia;
-    document.getElementById("efectivo_realEUR").innerHTML =
-      data.EUR.efectivo_real;
-    document.getElementById("dolartodayEUR").innerHTML = data.EUR.dolartoday;
-    //Promedio Listado
-    document.getElementById("promedio_realEUR").innerHTML =
-      data.EUR.promedio_real;
-
-    //Promedio Cuadro
-    document.getElementById("promedioUSD").innerHTML = data.USD.promedio_real;
-    document.getElementById("promedioEUR").innerHTML = data.EUR.promedio_real;
-  })
-  .catch(function(err) {
-    console.log("Hubo un Error: " + err);
-  });
-
+//DolarToday
+var apiRequest1 = fetch('https://s3.amazonaws.com/dolartoday/data.json').then(function (response) {
+  return response.json();
+});
 //Yadio.io
-fetch("https://cors-anywhere.herokuapp.com/https://api.yadio.io/json")
-  .then(function(response) {
-    return response.json();
-  })
-  .then(function(data) {
-    document.getElementById("yadioUSD").innerHTML = data.USD.avg24h.toFixed(2);
-    document.getElementById("yadioEUR").innerHTML = data.rates.EUR.toFixed(2);
-  })
-  .catch(function(err) {
-    console.log("Hubo un Error: " + err);
-  });
-
+var apiRequest2 = fetch('https://cors-anywhere.herokuapp.com/https://api.yadio.io/json').then(function (response) {
+  return response.json();
+});
 //Dolar Satoshi
-var localbitcoin =
-  "https://cors-anywhere.herokuapp.com/https://localbitcoins.com/sell-bitcoins-online/vef/.json";
-var coinmarketcap =
-  "https://api.coinmarketcap.com/v1/ticker/bitcoin/?convert=USD";
+var apiRequest3 = fetch('https://cors-anywhere.herokuapp.com/https://localbitcoins.com/sell-bitcoins-online/vef/.json').then(function (response) {
+  return response.json();
+});
+var apiRequest4 = fetch('https://api.coinmarketcap.com/v1/ticker/bitcoin/?convert=USD').then(function (response) {
+  return response.json();
+});
 
-//WhatsApp
-fetch("https://s3.amazonaws.com/dolartoday/data.json")
-  .then(function(response) {
-    return response.json();
-  })
-  .then(function(data) {
-    var mensaje =
-      "Promedio de Dolar: " +
-      data.USD.promedio_real +
-      " Promedio de Euro: " +
-      data.EUR.promedio_real;
-    var hora = data._timestamp.fecha;
-    var url = "https://metalsyntax.github.io/Syntax-Monitor/";
-    var whats =
-      "https://api.whatsapp.com/send?text=" +
-      mensaje +
-      " Visite para consultar a profundidad " +
-      url +
-      " " +
-      hora;
-    var whatsppButton = document.getElementById("whatsapp");
-    whatsppButton.setAttribute("title", "Compartir por WhatsApp");
-    whatsppButton.setAttribute("href", whats);
-  })
-  .catch(function(err) {
-    console.log("Hubo un Error: " + err);
-  });
+Promise.all([apiRequest1, apiRequest2]).then(function (values) {
+  //Fecha
+  var Fecha = values[0]._timestamp.fecha;
+  document.getElementById("Fecha").innerHTML = Fecha;
+  //Tasas en USD DolarToday
+  document.getElementById("transferenciaUSD").innerHTML = values[0].USD.transferencia;
+  document.getElementById("efectivo_realUSD").innerHTML = values[0].USD.efectivo_real;
+  document.getElementById("bitcoin_refUSD").innerHTML = values[0].USD.bitcoin_ref;
+  document.getElementById("dolartodayUSD").innerHTML = values[0].USD.dolartoday;
+  //Tasas en USD Yadio.io
+  document.getElementById("yadioUSD").innerHTML = values[1].USD.avg24h.toFixed(2);
 
-//Twitter
-fetch("https://s3.amazonaws.com/dolartoday/data.json")
-  .then(function(response) {
-    return response.json();
-  })
-  .then(function(data) {
-    var mensaje =
-      "Promedio de Dolar: " +
-      data.USD.promedio_real +
-      " Promedio de Euro: " +
-      data.EUR.promedio_real;
-    var url = "https://metalsyntax.github.io/Syntax-Monitor/";
-    var hora = data._timestamp.fecha;
-    var hashtags = "bitcoin,venezuela,monitor";
-    var tweet =
-      "https://twitter.com/intent/tweet?url=" +
-      url +
-      "&text=" +
-      mensaje +
-      " " +
-      hora +
-      "&hashtags=" +
-      hashtags;
-    
-    var twitterButton = document.getElementById("twitter");
-    twitterButton.setAttribute("title", "Compartir por Twitter");
-    twitterButton.setAttribute("href", tweet);
-  })
-  .catch(function(err) {
-    console.log("Hubo un Error: " + err);
-  });
+  //Tasas en EUR DolarToday
+  document.getElementById("transferenciaEUR").innerHTML = values[0].EUR.transferencia;
+  document.getElementById("efectivo_realEUR").innerHTML = values[0].EUR.efectivo_real;
+  document.getElementById("dolartodayEUR").innerHTML = values[0].EUR.dolartoday;
+  //Tasas en EUR Yadio.io
+  document.getElementById("yadioEUR").innerHTML = values[1].rates.EUR.toFixed(2);
 
-//Telegram
-fetch("https://s3.amazonaws.com/dolartoday/data.json")
-  .then(function (response) {
-    return response.json();
-  })
-  .then(function (data) {
-    var mensaje =
-      "Promedio de Dolar: " +
-      data.USD.promedio_real +
-      " Promedio de Euro: " +
-      data.EUR.promedio_real;
-    var hora = data._timestamp.fecha;
-    var url = "https://metalsyntax.github.io/Syntax-Monitor/";
-    var tele =
-      "https://t.me/share/url?url=" + url + "&text=" + mensaje + " " + hora;
-    
-    var teleButton = document.getElementById("telegram");
-    teleButton.setAttribute("title", "Compartir por Telegram");
-    teleButton.setAttribute("href", tele);
-  })
-  .catch(function (err) {
-    console.log("Hubo un Error: " + err);
-  });
+  //Promedio del Dolar
+  var TodayUSD = values[0].USD.dolartoday;
+  var YadioUSD = parseInt(values[1].USD.avg24h);
+  var PromUSD = ((TodayUSD + YadioUSD) / 2).toFixed(2);
+  document.getElementById("promedio_realUSD").innerHTML = PromUSD;
+  document.getElementById("promedioUSD").innerHTML = PromUSD;
+
+  //Promedio del Euro
+  var TodayEUR = values[0].EUR.dolartoday;
+  var YadioEUR = parseInt(values[1].rates.EUR);
+  var PromEUR = ((TodayEUR + YadioEUR) / 2).toFixed(2);
+  document.getElementById("promedio_realEUR").innerHTML = PromEUR;
+  document.getElementById("promedioEUR").innerHTML = PromEUR;
+
+  //WhatsApp
+  var mensaje = "Promedio de Dolar: " + PromUSD +  " Promedio de Euro: " + PromEUR;
+  var url = "https://metalsyntax.github.io/Syntax-Monitor/";
+  var whats = "https://api.whatsapp.com/send?text=" + mensaje + " Visite para consultar a profundidad " + url + " " + Fecha;
+  //Boton de WhatsApp
+  var whatsppButton = document.getElementById("whatsapp");
+  whatsppButton.setAttribute("title", "Compartir por WhatsApp");
+  whatsppButton.setAttribute("href", whats);
+
+  //Twitter
+  var hashtags = "bitcoin,venezuela,monitor";
+  var tweet = "https://twitter.com/intent/tweet?url=" + url + "&text=" + mensaje + " " + Fecha + "&hashtags=" + hashtags;
+  //Boton de Twitter
+  var twitterButton = document.getElementById("twitter");
+  twitterButton.setAttribute("title", "Compartir por Twitter");
+  twitterButton.setAttribute("href", tweet);
+  //Telegram
+  var tele = "https://t.me/share/url?url=" + url + "&text=" + mensaje + " " + Fecha;
+  //Boton de Telegram
+  var teleButton = document.getElementById("telegram");
+  teleButton.setAttribute("title", "Compartir por Telegram");
+  teleButton.setAttribute("href", tele);
+
+}).catch(function (err) {
+  console.log("Hubo un Error: " + err);
+});
 
 //Animacion
 var TxtRotate = function(el, toRotate, period) {
@@ -210,4 +146,3 @@ setTimeout(function() {
 $(function () {
   $('[data-toggle="tooltip"]').tooltip();
 });
-
