@@ -1,26 +1,24 @@
-# Syntax Monitor
-Derechos de Autor (C) 2019 Wonder Diaz
+## Dollar Monitoring: Syntax Monitor
 
-Syntax Monitor esta aplicacion es un software de codigo abierto para la verificacion de tasas del dolar paralelo en Venezuela. Estara consumiendo distintos datos para mejorar la precision.
+**Syntax Monitor** is an open-source application for **monitoring the parallel dollar exchange rate in Venezuela**. It consumes data from different sources to offer greater accuracy.
 
-## Caracteristicas
-- Jumbotron con Fancy Text de Typing Carousel
-- Botones para compartir en la redes sociales  
-- Cuadros para mostrar los valores de USD/EUR
-- Calculadora Automatica
-- Mensajes Tooltips
-- Diseño Adaptable
+### Features:
 
-## Licencia
+* **Jumbotron with dynamic text carousel**
+* **Buttons to share on social networks**
+* **Informative boxes with USD values**
+* **Pop-up messages with additional information**
+* **Responsive design for different devices**
 
-Syntax Monitor está licenciado bajo la licencia MIT.(http://opensource.org/licenses/MIT)
+### License:
 
-## Enlaces
+**Syntax Monitor is licensed under the MIT license** ([http://opensource.org/licenses/MIT](http://opensource.org/licenses/MIT)).
 
-Codigo Fuente:
+### Links:
 
-- Syntax Monitor: https://github.com/MetalSyntax/Syntax-Monitor
+* **Source code:** [https://github.com/MetalSyntax/Syntax-Monitor](https://github.com/MetalSyntax/Syntax-Monitor)
 
-Donaciones: 
+**Additional Information:**
 
-[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](paypal.me/MetalSyntax)
+* **Data sources:** The application uses data from DolarToday: [https://www.dolartoday.com/](https://www.dolartoday.com/) and Monitor Dolar Vzla: [https://monitordolarvzla.com/](https://monitordolarvzla.com/).
+* **Contact information:** To report bugs or give suggestions, contact MetalSyntax: [https://github.com/MetalSyntax](https://github.com/MetalSyntax) by email or through GitHub.
