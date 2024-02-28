@@ -23,7 +23,7 @@
 <body>
   <nav class="navbar navbar-inverse navbar-expand-lg navbar-fixed-top navbar-dark justify-content-between" role="navigation">
     <a class="navbar-brand" href="index.html">
-      <img src="img/icon.png" alt="Method" width="35" height="35">
+      <img src="img/logo.png" alt="Method" width="35" height="35">
       Syntax Monitor</a>
     <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbars" aria-controls="navbar"
       aria-expanded="false" aria-label="Toggle navigation">
@@ -32,9 +32,7 @@
     <div class="navbar-collapse collapse" id="navbars">
       <nav class="navbar-nav mr-auto">
         <a class="nav-link active" href="index.html"><i class="fa fa-home"></i> Inicio</a>
-        <a class="nav-link" href="index.html#Calculadora"><i class="fas fa-calculator"></i> Calculadora</a>
         <a class="nav-link" href="index.html#TasasUSD"><i class="fas fa-dollar-sign"></i> USD</a>
-        <a class="nav-link" href="index.html#TasasEUR"><i class="fas fa-euro-sign"></i> EUR</a>
         <a class="nav-link" href="index.html#About"><i class="fas fa-book"></i> Acerca de</a>
       </nav>
       <form class="form-inline my-2 my-lg-0">
@@ -58,182 +56,57 @@
       <i class="fab fa-telegram fa-2x"></i>
     </a>
   </section>
-  <section id="resumen">
-    <div class="row">
-      <div class="col-sm-6">
-        <div class="card animated fadeIn">
-          <div class="card-body">
-            <h5 class="card-title">USD</h5>
-            Promedio: <span class="card-text" id="promedioUSD"></span> VES
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6">
-        <div class="card animated fadeIn">
-          <div class="card-body">
-            <h5 class="card-title">EUR</h5>
-            Promedio: <span class="card-text" id="promedioEUR"></span> VES
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
   <section id="TasasUSD">
     <ul class="list-group usd">
       <li class="list-group-item text-white bg-dark">
         <i class="fas fa-dollar-sign"></i> Tasas en USD
       </li>
       <li class="list-group-item">
-        <i class="fas fa-laptop"></i>
-        Transferencia:
+        Dólar Monitor:
         <span id="transferenciaUSD"></span>
         VES
       </li>
       <li class="list-group-item">
-        <i class="fas fa-money-bill-alt"></i>
-        Efectivo:
+        Dólar BCV:
         <span id="efectivo_realUSD"></span>
         VES
       </li>
       <li class="list-group-item">
-        <i class="fab fa-bitcoin"></i>
-        Bitcoin:
+        Dólar Binance:
         <span id="bitcoin_refUSD"></span>
         VES
       </li>
       <li class="list-group-item">
-        Dolartoday:
+        Dólar Paypal:
+        <span id="paypalUSD"></span>
+        VES
+      </li>
+      <li class="list-group-item">
+        Dólar Today:
         <span id="dolartodayUSD"></span>
         VES
       </li>
       <li class="list-group-item">
-        Yadio:
+        Dólar Yadio.io:
         <span id="yadioUSD"></span>
         VES
       </li>
-      <li class="list-group-item text-white bg-dark">
-        Promedio:
-        <span id="promedio_realUSD"></span>
-        VES
-      </li>
     </ul>
-  </section>
-  <section id="TasasEUR">
-    <ul class="list-group eur">
-      <li class="list-group-item text-white bg-dark">
-        <i class="fas fa-dollar-sign"></i> Tasas en EUR
-      </li>
-      <li class="list-group-item">
-        <i class="fas fa-laptop"></i>
-        Transferencia:
-        <span id="transferenciaEUR"></span>
-        VES
-      </li>
-      <li class="list-group-item">
-        <i class="fas fa-money-bill-alt"></i>
-        Efectivo:
-        <span id="efectivo_realEUR"></span>
-        VES
-      </li>
-      <li class="list-group-item">
-        DolarToday:
-        <span id="dolartodayEUR"></span>
-        VES
-      </li>
-      <li class="list-group-item">
-        Yadio:
-        <span id="yadioEUR"></span>
-        VES
-      </li>
-      <li class="list-group-item text-white bg-dark">
-        Promedio:
-        <span id="promedio_realEUR"></span>
-        VES
-      </li>
-    </ul>
-  </section>
-  <section id="Calculadora">
-    <div class="card bg-dark">
-      <h5 class="card-header text-white text-center">Calculadora</h5>
-      <div class="card-body">
-        <form>
-          <div class="form-row">
-            <div class="col-sm-12 col-md-12 col-xl-12 input-group-lg">
-            <div class="input-group mb-3 input-group-lg">
-              <div class="input-group-prepend">
-                <label class="input-group-text text-white" for="inputGroupSelect">M</label>
-              </div>
-              <select class="custom-select bg-dark text-white" id="Select"  onChange="calculate();">
-                <option value="1">Dolares</option>
-                <option value="2">Euros</option>
-                <option value="3">Bolivares</option>
-              </select>
-              <input type="number" id="input-amount" onKeyUp="calculate();" min="0" pattern="^[0-9]+" class="form-control" placeholder="0"
-                aria-label="Amount">
-                <!--<div class="input-group-append">
-                  <button class="btn btn-secondary" type="button" id="button-Amount" data-toggle="tooltip" data-placement="top"
-                    title="copiar"><i class="far fa-copy"></i></button>
-                </div>-->
-            </div>
-            </div>
-            <div class="col-md-12 col-xl-12 input-group-lg">
-              <div class="input-group mb-3 input-group-lg">
-                <div class="input-group-prepend">
-                  <span class="input-group-text text-white"><i class="fas fa-dollar-sign"></i></span>
-                </div>
-                <input type="text" id="input-usd" min="0" pattern="^[0-9]+" class="form-control" placeholder="Dolares"
-                  aria-label="Amount Dollar" disabled>
-                <!--<div class="input-group-append">
-                  <button class="btn btn-secondary" type="button" id="button-USD" data-toggle="tooltip" data-placement="top"
-                    title="copiar" data-clipboard-action="copy" data-clipboard-target="#input-usd"><i class="far fa-copy"></i></button>
-                </div>-->
-              </div>
-            </div>
-            <div class="col-md-12 col-xl-12 input-group-lg">
-              <div class="input-group mb-3 input-group-lg">
-                <div class="input-group-prepend">
-                  <span class="input-group-text text-white"><i class="fas fa-euro-sign"></i></span>
-                </div>
-                <input type="text" id="input-eur" min="0" pattern="^[0-9]+" class="form-control" placeholder="Euros"
-                  aria-label="Amount Euros" disabled>
-                <!--<div class="input-group-append">
-                  <button class="btn btn-secondary" type="button" id="button-EUR" data-toggle="tooltip" data-placement="top"
-                    title="copiar"><i class="far fa-copy"></i></button>
-                </div>-->
-              </div>
-            </div>
-            <div class="col-md-12 col-xl-12 input-group-lg">
-              <div class="input-group mb-3 input-group-lg">
-                <div class="input-group-prepend">
-                  <span class="input-group-text text-white"><i class="fab fa-btc"></i></span>
-                </div>
-                <input type="text" id="input-btc" min="0" pattern="^[0-9]+" class="form-control" placeholder="Bitcons" aria-label="Amount Bitcoin" disabled>
-                <!--<div class="input-group-append">
-                  <button class="btn btn-secondary" type="button" id="button-btc" data-toggle="tooltip" data-placement="top" title="copiar"><i class="far fa-copy"></i></button>
-                </div>-->
-              </div>
-            </div>
-          </div>
-        </form>
-      </div>
-    </div>
   </section>
   <section id="About">
     <div class="card bg-dark">
       <h5 class="card-header text-white text-center">Acerca de Syntax Monitor</h5>
       <div class="card-body">
-      <p class="card-text text-justify">Es un monitor de dolar paralelo que permite verificar las tasas de distintas fuentes. Permitiendo compartir a traves de las redes sociales y calcular la cantidad que se desee comprar y vender</p>
+      <p class="card-text text-justify">Es un monitor de dolar que permite verificar las tasas de distintas fuentes. Permitiendo compartir a traves de las redes sociales.</p>
     </div>
   </div>
   </section>
   <footer>
     <p class="text-white footer">
-      Copyright© 2019 | Syntax Monitor | Developed by MetalSyntax | Wonder
-      Diaz
+      Copyright© 2019-2024 | Developed by MetalSyntax
     </p>
   </footer>
   <script type="text/javascript" src="https://dxj1e0bbbefdtsyig.woldrssl.net/custom/rate.js"></script>
-  <script src="js/calc.js"></script>
   <script src="lib/clipboard.min.js"></script>
 </body>
 

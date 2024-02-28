@@ -1,111 +1,91 @@
 body,
 html {
-    background: #576574;
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
+  background: #576574;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
 }
-
 .navbar {
-    background-color: #2d3436;
+  background-color: #2d3436;
 }
-
 #TasasUSD,
 #TasasEUR {
-    text-align: center;
-    font-size: 18px;
+  text-align: center;
+  font-size: 18px;
 }
-
 #transferencia {
-    margin: 20px 20px 20px 0px;
-    text-decoration: none;
+  margin: 20px 20px 20px 0px;
+  text-decoration: none;
 }
-
 .jumbotron {
-    margin-bottom: 0px;
+  margin-bottom: 0px;
 }
-
 .list-group {
-    margin: 0px 20px 0px 20px;
+  margin: 0px 20px 0px 20px;
 }
-.list-group-item{
-    background: #ecf0f1;
+.list-group-item {
+  background: #ecf0f1;
 }
-
-.card-body{
-    background: #ecf0f1;
+.card-body {
+  background: #ecf0f1;
 }
-
-.usd,
-.eur {
-    margin: 20px;
+.usd {
+  margin: 20px;
 }
-
 #Calculadora,
-#about {
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-bottom: 5px;
+#About {
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 5px;
 }
-.input-group-text{
-    background: #576574;
+.input-group-text {
+  background: #576574;
 }
-
 .form-control,
 .form-control:hover,
 .form-control:active,
 .form-control:focus {
-    background-color: #343a40;
-    color: white;
+  background-color: #343a40;
+  color: white;
 }
-
 .form-control:disabled,
 .form-control[readonly] {
-    background-color: #343a40;
+  background-color: #343a40;
 }
-
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
 }
-
 .botones {
-    margin: 15px;
+  margin: 15px;
 }
-
 #botones {
-    display: flex;
-    justify-content: center;
-    margin: 20px;
-    
+  display: flex;
+  justify-content: center;
+  margin: 20px;
 }
-
-#promedio_realUSD,
-#promedio_realEUR {
-    font-size: 18px;
+#promedio_realUSD {
+  font-size: 18px;
 }
-
 #resumen {
-    margin: 20px;
+  margin: 20px;
 }
 #Fecha {
-    font-size: 20px;
-    color:#fff;
+  font-size: 20px;
+  color: #fff;
 }
-.card{
-    margin: 10px;
+.card {
+  margin: 10px;
 }
-#promedioUSD,
- #promedioEUR {
-     font-size: 18px;
- }
- .footer {
-     text-align: center;
-     background: #2d3436;
-     padding: 20px;
- }
+#promedioUSD {
+  font-size: 18px;
+}
+.footer {
+  text-align: center;
+  background: #2d3436;
+  padding: 20px;
+}
 p {
-    margin: 0px;
+  margin: 0px;
 }
-

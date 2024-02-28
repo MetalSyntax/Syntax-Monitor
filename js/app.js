@@ -1,56 +1,29 @@
-//DolarToday
-var apiRequest1 = fetch('https://s3.amazonaws.com/dolartoday/data.json').then(function (response) {
+var apiRequest = fetch('https://venecodollar.vercel.app/api/v2/dollar').then(function (response) {
   return response.json();
 });
-//Yadio.io
-var apiRequest2 = fetch('https://cors-anywhere.herokuapp.com/https://api.yadio.io/json').then(function (response) {
-  return response.json();
-});
-//Dolar Satoshi
-var apiRequest3 = fetch('https://cors-anywhere.herokuapp.com/https://localbitcoins.com/sell-bitcoins-online/vef/.json').then(function (response) {
-  return response.json();
-});
-var apiRequest4 = fetch('https://api.coinmarketcap.com/v1/ticker/bitcoin/?convert=USD').then(function (response) {
-  return response.json();
-});
-
-Promise.all([apiRequest1, apiRequest2]).then(function (values) {
+Promise.all([apiRequest]).then(function (values) {
   //Fecha
-  var Fecha = values[0]._timestamp.fecha;
-  document.getElementById("Fecha").innerHTML = Fecha;
+  var Fecha = values[0].Data.date;
+  const fechaFormateada = new Date(Fecha).toLocaleDateString('es-VE', {
+    weekday: 'long',
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  });
+  document.getElementById("Fecha").innerHTML = fechaFormateada;
+
   //Tasas en USD DolarToday
-  document.getElementById("transferenciaUSD").innerHTML = values[0].USD.transferencia;
-  document.getElementById("efectivo_realUSD").innerHTML = values[0].USD.efectivo_real;
-  document.getElementById("bitcoin_refUSD").innerHTML = values[0].USD.bitcoin_ref;
-  document.getElementById("dolartodayUSD").innerHTML = values[0].USD.dolartoday;
-  //Tasas en USD Yadio.io
-  document.getElementById("yadioUSD").innerHTML = values[1].USD.avg24h.toFixed(2);
-
-  //Tasas en EUR DolarToday
-  document.getElementById("transferenciaEUR").innerHTML = values[0].EUR.transferencia;
-  document.getElementById("efectivo_realEUR").innerHTML = values[0].EUR.efectivo_real;
-  document.getElementById("dolartodayEUR").innerHTML = values[0].EUR.dolartoday;
-  //Tasas en EUR Yadio.io
-  document.getElementById("yadioEUR").innerHTML = values[1].rates.EUR.toFixed(2);
-
-  //Promedio del Dolar
-  var TodayUSD = values[0].USD.dolartoday;
-  var YadioUSD = parseInt(values[1].USD.avg24h);
-  var PromUSD = ((TodayUSD + YadioUSD) / 2).toFixed(2);
-  document.getElementById("promedio_realUSD").innerHTML = PromUSD;
-  document.getElementById("promedioUSD").innerHTML = PromUSD;
-
-  //Promedio del Euro
-  var TodayEUR = values[0].EUR.dolartoday;
-  var YadioEUR = parseInt(values[1].rates.EUR);
-  var PromEUR = ((TodayEUR + YadioEUR) / 2).toFixed(2);
-  document.getElementById("promedio_realEUR").innerHTML = PromEUR;
-  document.getElementById("promedioEUR").innerHTML = PromEUR;
+  document.getElementById("transferenciaUSD").innerHTML = values[0].Data.entities[0].info.dollar;
+  document.getElementById("efectivo_realUSD").innerHTML = values[0].Data.entities[2].info.dollar;
+  document.getElementById("bitcoin_refUSD").innerHTML = values[0].Data.entities[9].info.dollar;
+  document.getElementById("dolartodayUSD").innerHTML = values[0].Data.entities[1].info.dollar;
+  document.getElementById("paypalUSD").innerHTML = values[0].Data.entities[4].info.dollar;
+  document.getElementById("yadioUSD").innerHTML = values[0].Data.entities[7].info.dollar;
 
   //WhatsApp
-  var mensaje = "Promedio de Dolar: " + PromUSD +  " Promedio de Euro: " + PromEUR;
+  var mensaje = "Dólar Monitor: " + values[0].Data.entities[0].info.dollar + " Dólar BCV: " + values[0].Data.entities[2].info.dollar;
   var url = "https://metalsyntax.github.io/Syntax-Monitor/";
-  var whats = "https://api.whatsapp.com/send?text=" + mensaje + " Visite para consultar a profundidad " + url + " " + Fecha;
+  var whats = "https://api.whatsapp.com/send?text=" + mensaje + " Visite para consultar a profundidad " + url + " " + fechaFormateada;
   //Boton de WhatsApp
   var whatsppButton = document.getElementById("whatsapp");
   whatsppButton.setAttribute("title", "Compartir por WhatsApp");
@@ -58,13 +31,14 @@ Promise.all([apiRequest1, apiRequest2]).then(function (values) {
 
   //Twitter
   var hashtags = "bitcoin,venezuela,monitor";
-  var tweet = "https://twitter.com/intent/tweet?url=" + url + "&text=" + mensaje + " " + Fecha + "&hashtags=" + hashtags;
+  var tweet = "https://twitter.com/intent/tweet?url=" + url + "&text=" + mensaje + " " + fechaFormateada + "&hashtags=" + hashtags;
   //Boton de Twitter
   var twitterButton = document.getElementById("twitter");
   twitterButton.setAttribute("title", "Compartir por Twitter");
   twitterButton.setAttribute("href", tweet);
+  
   //Telegram
-  var tele = "https://t.me/share/url?url=" + url + "&text=" + mensaje + " " + Fecha;
+  var tele = "https://t.me/share/url?url=" + url + "&text=" + mensaje + " " + fechaFormateada;
   //Boton de Telegram
   var teleButton = document.getElementById("telegram");
   teleButton.setAttribute("title", "Compartir por Telegram");
